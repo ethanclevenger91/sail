@@ -23,7 +23,9 @@
     "require": {
         "php": "^7.3|^8.0",
         "illuminate/contracts": "^8.0|^9.0",
-        "illuminate/support": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "require-dev": {
         "wp-cli/wp-cli": "^2.6"
     },
     "bin": [
