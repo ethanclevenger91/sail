@@ -1,4 +1,4 @@
-FROM ubuntu:21.10
+FROM ubuntu:20.04
 
 LABEL maintainer="Taylor Otwell"
 
@@ -20,7 +20,7 @@ RUN apt-get update \
     && echo "keyserver hkp://keyserver.ubuntu.com:80" >> ~/.gnupg/dirmngr.conf \
     && gpg --recv-key 0x14aa40ec0831756756d7f66c4f4ea0aae5267a6c \
     && gpg --export 0x14aa40ec0831756756d7f66c4f4ea0aae5267a6c > /usr/share/keyrings/ppa_ondrej_php.gpg \
-    && echo "deb [signed-by=/usr/share/keyrings/ppa_ondrej_php.gpg] https://ppa.launchpadcontent.net/ondrej/php/ubuntu impish main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
+    && echo "deb [signed-by=/usr/share/keyrings/ppa_ondrej_php.gpg] https://ppa.launchpadcontent.net/ondrej/php/ubuntu focal main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update \
     && apt-get install -y php7.4-cli php7.4-dev \
        php7.4-gd \
