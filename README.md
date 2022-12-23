@@ -37,6 +37,7 @@ By default, MySQL and Mailhog containers will be attached, but you can also use,
 wp sail:install --with=mysql,mailhog,redis
 ```
 
+## PHP Versions
 At this point, you may want to change the version of PHP used in the `docker-compose.yml` file.
 
 ```
@@ -54,6 +55,21 @@ services:
         # ...
 ```
 
+## Alternative Public Path
+If your  WordPress files are in a `web/` directory in your repository then you're good to go - otherwise set the PUBLIC_DIR arg in `docker-compose.yaml`.
+
+```
+version: '3'
+services:
+    wordpress.test:
+        build:
+            context: ./vendor/sterner-stuff/wordpress-sail/runtimes/8.1
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+                PUBLIC_DIR: 'public' <-- path to the directory containing wp-config.php relative to your docker-compose.yaml file
+        # ...
+```
 Finally, build your containers:
 
 ```
